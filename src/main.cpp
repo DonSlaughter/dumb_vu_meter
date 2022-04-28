@@ -13,6 +13,14 @@ int mic_value;
 int old_mic_value = 580;
 int mic_delta = 160;
 
+const uint8_t saturation = 255;
+//start at hue value 85 (pure green)
+uint8_t gHue = 85;
+//getting the right gradtient for led ring or strip
+uint8_t gHueDelta = 255/NUM_LEDS;
+//intensity for leds
+uint8_t value = 255;
+
 void setup() {
 	Serial.begin(9600);
 	FastLED.addLeds<LED_TYPE, Pixel_PIN, COLOR_ORDER>(leds, NUM_LEDS);
@@ -28,7 +36,7 @@ void loop() {
 	Serial.println(mic_value);
 	for (int i = 0; i <= 15; i++) {
 		if ((mic_value - old_mic_value) > 10*i) {
-			leds[i] = CRGB::Green;
+			leds[i] = CHSV(gHue+(gHueDelta*i),saturation,value);
 		}
 		else {
 			leds[i] = CRGB::Black;
