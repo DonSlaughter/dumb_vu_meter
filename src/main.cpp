@@ -34,31 +34,6 @@ void loop() {
 			leds[i] = CRGB::Black;
 		}
 	}
-
-//	if ((mic_value - old_mic_value) > 20) {
-//		leds[0] = CRGB::Green;
-//		leds[1] = CRGB::Black;
-//		leds[2] = CRGB::Black;
-//		leds[3] = CRGB::Black;
-//	}
-//	if ((mic_value - old_mic_value) > 30) {
-//		leds[0] = CRGB::Green;
-//		leds[1] = CRGB::YellowGreen;
-//		leds[2] = CRGB::Black;
-//		leds[3] = CRGB::Black;
-//	}
-//	if ((mic_value - old_mic_value) > 40) {
-//		leds[0] = CRGB::Green;
-//		leds[1] = CRGB::YellowGreen;
-//		leds[2] = CRGB::Orange;
-//		leds[3] = CRGB::Black;
-//	}
-//	if ((mic_value - old_mic_value) > 50) {
-//		leds[0] = CRGB::Green;
-//		leds[1] = CRGB::YellowGreen;
-//		leds[2] = CRGB::Orange;
-//		leds[3] = CRGB::Red;
-//	}
 	old_mic_value = mic_value;
 	FastLED.show();
 }
